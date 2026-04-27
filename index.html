@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorting Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated background canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <div class="app">
+    <header>
+      <h1>Sorting Visualizer</h1>
+      <p class="subtitle" id="algoLabel">Select an algorithm to begin</p>
+    </header>
+
+    <div class="card">
+      <div class="controls">
+        <div class="control-group">
+          <label>Algorithm</label>
+          <select id="algoSelect">
+            <option value="bubble">🫧 Bubble Sort</option>
+            <option value="insertion">🃏 Insertion Sort</option>
+            <option value="selection">🔍 Selection Sort</option>
+            <option value="merge">🧬 Merge Sort</option>
+            <option value="quick">⚡ Quick Sort</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Array Size <span id="sizeVal">40</span></label>
+          <input type="range" id="sizeSlider" min="10" max="80" value="40" />
+        </div>
+        <div class="control-group">
+          <label>Speed <span id="speedVal">3</span></label>
+          <input type="range" id="speedSlider" min="1" max="5" value="3" />
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button id="newArrayBtn">🔀 New Array</button>
+        <button id="startBtn" class="primary">▶ Start</button>
+        <button id="resetBtn">↺ Reset</button>
+      </div>
+
+      <canvas id="sortCanvas"></canvas>
+
+      <div class="stats">
+        <div class="stat"><span class="stat-label">Comparisons</span><span id="cmpCount">0</span></div>
+        <div class="stat"><span class="stat-label">Swaps</span><span id="swpCount">0</span></div>
+        <div class="stat"><span class="stat-label">Status</span><span id="statusText">Ready</span></div>
+      </div>
+
+      <div class="legend">
+        <span class="dot default"></span> Unsorted
+        <span class="dot comparing"></span> Comparing
+        <span class="dot swapping"></span> Swapping
+        <span class="dot sorted"></span> Sorted
+      </div>
+    </div>
+
+    <div class="complexity-grid">
+      <div class="complexity-card" id="cmpCard">
+        <div class="cmp-name">Bubble Sort</div>
+        <div class="cmp-row"><span>Best</span><span class="tag green">O(n)</span></div>
+        <div class="cmp-row"><span>Avg</span><span class="tag yellow">O(n²)</span></div>
+        <div class="cmp-row"><span>Worst</span><span class="tag red">O(n²)</span></div>
+        <div class="cmp-row"><span>Space</span><span class="tag green">O(1)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
